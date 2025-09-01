@@ -1,0 +1,22 @@
+def lumos(runes):
+    runes = runes.upper()
+    req = "LUMOS"
+    collected = ""
+    step = 0
+
+    for i in runes:
+        step = step+1
+        collected = collected+i
+
+    check = True
+    for ch in req:
+        if req.count(ch)>collected.count(ch):
+            check=False
+            break
+        if check==True:
+            return step
+        
+    return -1
+
+print(lumos("abcdlumos"))
+print(lumos("lumos"))
