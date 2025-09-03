@@ -1,22 +1,17 @@
-def lumos(runes):
-    runes = runes.upper()
-    req = "LUMOS"
-    collected = ""
-    step = 0
-
-    for i in runes:
-        step = step+1
-        collected = collected+i
-
-    check = True
-    for ch in req:
-        if req.count(ch)>collected.count(ch):
-            check=False
-            break
-        if check==True:
-            return step
+def earliest_lumos(seq):
+    seq = seq.lower()  
+    
+    l = u = m = o = s = 0  
+    
+    for i in range(len(seq)):
+        ch = seq[i]
+        if ch == 'l': l = 1
+        if ch == 'u': u = 1
+        if ch == 'm': m = 1
+        if ch == 'o': o = 1
+        if ch == 's': s = 1
         
+        if l and u and m and o and s:
+            return i + 1   # +1 because steps start from 1
+    
     return -1
-
-print(lumos("abcdlumos"))
-print(lumos("lumos"))
