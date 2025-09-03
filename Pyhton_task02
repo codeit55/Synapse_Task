@@ -12,6 +12,6 @@ def earliest_lumos(seq):
         if ch == 's': s = 1
         
         if l and u and m and o and s:
-            return i + 1   # +1 because steps start from 1
+            return i + 1   
     
     return -1
